@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 
 
 
-class NetworkUtil(val service: ApiService) {
+open class NetworkUtil() {
     var viewModelScope: CoroutineScope? = null
     var viewModel: BaseModel? = null
 

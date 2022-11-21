@@ -10,7 +10,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
 
-class BaseApplication : Application() {
+open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {

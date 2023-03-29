@@ -45,6 +45,7 @@ open class BaseModel(var networkUtil: NetworkUtil?=null)  : ViewModel(){
         mBaseEvent.postValue(BaseViewModelEvent.NetworkEvent(Resource.loading("")))
         viewModelScope.launch(Dispatchers.IO){
             listener(this){
+                mBaseEvent.postValue(BaseViewModelEvent.NetworkEvent(Resource.finish("")))
                 if(it.status==Status.ERROR){
                     mBaseEvent.postValue(BaseViewModelEvent.NetworkEvent(it))
                 }

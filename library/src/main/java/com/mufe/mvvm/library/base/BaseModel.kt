@@ -52,13 +52,12 @@ open class BaseModel(var networkUtil: NetworkUtil?=null)  : ViewModel(){
         }
     }
 
-    fun loadData(listener: (v: CoroutineScope) -> Unit){
+    fun loadDataBlock(block: suspend CoroutineScope.() -> Unit){
         mBaseEvent.postValue(BaseViewModelEvent.NetworkEvent(Resource.loading("")))
         viewModelScope.launch(Dispatchers.IO){
-            listener(this)
+            block.invoke(this)
         }
     }
-
     fun onError(data:Resource<Any>){
         if(data.code==202){
             mBaseEvent.postValue(BaseViewModelEvent.LogoutEvent)

@@ -13,6 +13,13 @@ fun Long.toDateStr(pattern: String = "yyyy-MM-dd HH:mm:ss"): String {
 }
 
 @SuppressLint("SimpleDateFormat")
+fun Long.toDateStrLocale(pattern: String = "yyyy-MM-dd HH:mm:ss",local:Locale): String {
+    val date = Date(this * 1000)
+    val format = SimpleDateFormat(pattern,local)
+    return format.format(date)
+}
+
+@SuppressLint("SimpleDateFormat")
 fun String.toDateStr(pattern: String = "yyyy-MM-dd HH:mm:ss"): Long {
     val format = SimpleDateFormat(pattern)
     var tLong: Long = 0

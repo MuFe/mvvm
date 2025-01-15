@@ -2,7 +2,11 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'maven-publish'
 }
+group = 'com.mufe.mvvm.library'
+version = '1.0'
+
 android {
     namespace 'com.mufe.mvvm.library'
     compileSdk 34
@@ -53,4 +57,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
     implementation 'com.google.code.gson:gson:2.11.0'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.mufe.mvvm.library' //groupId 随便取
+                artifactId = 'mufe'  //artifactId 随便取
+                version = '1.0.0'
+            }
+        }
+    }
 }

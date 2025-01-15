@@ -1,4 +1,4 @@
-package com.shares.app.binding
+package com.mufe.mvvm.library.binding
 
 import android.graphics.drawable.Drawable
 import android.view.View

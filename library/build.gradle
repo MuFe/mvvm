@@ -27,8 +27,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    // 使用 JVM Toolchain 设置 JDK 17
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'  // 将 Kotlin 的 jvmTarget 设置为 17
     }
     buildFeatures {
         dataBinding true
